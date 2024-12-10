@@ -1,0 +1,184 @@
+# **[Project Name]**
+
+<p align="center">
+  <img src="./assets/logo.png" alt="logo" width="512">
+</p>
+
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue)](#)
+![Node.js](https://img.shields.io/badge/node-%3E%3D20.18.0-green)
+![Yarn](https://img.shields.io/badge/yarn-%3E%3D4.5.1-green)
+
+A modern React application built with TypeScript and a focus on performance, scalability, and customization. 
+
+<p align="center">
+   <div style="display: flex; justify-content: center; align-items: center; gap: 10px;">
+      <img src="./assets/preview_desktop.png" alt="Preview Desktop Light" style="height: 150px; object-fit: contain;">
+      <img src="./assets/preview_mobile.png" alt="Preview Mobile Light" style="height: 150px; object-fit: contain;">
+      <img src="./assets/preview_desktop_dark.png" alt="Preview Desktop Dark" style="height: 150px; object-fit: contain;">
+      <img src="./assets/preview_mobile_dark.png" alt="Preview Mobile Dark" style="height: 150px; object-fit: contain;">
+   </div>
+</p>
+
+## **Table of Contents**
+
+- [Introduction](#introduction)
+- [Features](#features)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [Key Dependencies](#key-dependencies)
+- [Testing](#testing)
+- [License](#license)
+- [Contributing](#contributing)
+- [Contact](#contact)
+
+---
+
+## **Introduction**
+
+**[Project Name]** is designed to provide a seamless user experience with modern design principles, state management, and animations. The app leverages **React** and **TypeScript** to ensure scalability and maintainability.
+
+---
+
+## **Features**
+
+- ✅ Feature 1  
+- ✅ Feature 2  
+- ✅ Feature 3  
+- ✅ Type-safe and performant with **TypeScript**  
+- ✅ Built-in testing with **[Testing Tool/Framework]**
+
+---
+
+## **Requirements**
+
+Ensure the following are installed on your system:
+
+- **Node.js**: `>= [version]`
+- **Package Manager**: npm or yarn `>= [version]`
+
+---
+
+## **Installation**
+
+### Steps
+
+1. Clone the repository:
+   ```bash
+   git clone [repository-url]
+   cd [project-directory]
+   ```
+
+2. Install dependencies:
+   ```bash
+   yarn install
+   # or
+   npm install
+   ```
+
+3. Start the development server:
+   ```bash
+   yarn dev
+   # or
+   npm run dev
+   ```
+
+For a production build:
+```bash
+yarn build
+yarn start
+```
+
+---
+
+## **Usage**
+
+### Core Features:
+- **Feature 1**: [Description]
+- **Feature 2**: [Description]
+- **Feature 3**: [Description]
+
+This project allows for [specific use case, e.g., creating avatars, tracking anime, etc.].
+
+---
+
+## **Project Structure**
+
+```plaintext
+src/
+├── assets/          # Static assets (images, icons, etc.)
+├── components/      # Reusable components
+├── pages/           # Page-level components
+├── store/           # State management (e.g., Redux slices)
+├── routes/          # Routing configurations
+├── styles/          # Global and component styles
+├── App.tsx          # Main app entry point
+└── main.tsx         # Application bootstrap file
+```
+
+---
+
+## **Key Dependencies**
+
+- **React**: UI framework
+- **TypeScript**: Type-safe development
+- **[Dependency 1]**: [Description]
+- **[Dependency 2]**: [Description]
+
+For detailed dependency versions, see the [package.json](./package.json).
+
+---
+
+## **Testing**
+
+Use **[Testing Framework]** to ensure application reliability. Start testing:
+
+```bash
+yarn test
+# or
+npm run test
+```
+
+For component testing, run **Storybook** (if included):
+
+```bash
+yarn storybook
+```
+
+---
+
+## **License**
+
+This project is licensed under the [MIT License](./LICENSE).
+
+---
+
+## **Contributing**
+
+We welcome contributions! Follow these steps:
+
+1. Fork the repository.
+2. Create a feature branch:
+   ```bash
+   git checkout -b feature/[feature-name]
+   ```
+3. Commit your changes:
+   ```bash
+   git commit -m "Add feature: [feature-name]"
+   ```
+4. Push the branch:
+   ```bash
+   git push origin feature/[feature-name]
+   ```
+5. Open a pull request.
+
+---
+
+## **Contact**
+
+- **Repository**: [repository-url]  
+- **Author**: [Author Name]  
+
+---

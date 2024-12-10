@@ -1,0 +1,9 @@
+README.md
+setup.py
+bin/__init__.py
+bin/main.py
+myscript.egg-info/PKG-INFO
+myscript.egg-info/SOURCES.txt
+myscript.egg-info/dependency_links.txt
+myscript.egg-info/entry_points.txt
+myscript.egg-info/top_level.txt
