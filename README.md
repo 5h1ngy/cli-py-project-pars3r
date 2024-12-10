@@ -10,17 +10,10 @@
 
 A Python CLI tool for parsing project structures into prompts and restoring them into a directory scaffolding.
 
+
 <p align="center">
-  <table>
-    <tr>
-      <td align="center">
-        <img src="./assets/preview_1.png" alt="Preview 1" style="height: 300px; object-fit: contain;">
-      </td>
-      <td align="center">
-        <img src="./assets/preview_2.png" alt="Preview 2" style="height: 300px; object-fit: contain;">
-      </td>
-    </tr>
-  </table>
+  <img src="./assets/preview_1.png" alt="logo" width="512">
+  <img src="./assets/preview_2.png" alt="logo" width="512">
 </p>
 
 ## **Table of Contents**
