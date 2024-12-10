@@ -70,14 +70,14 @@ Ensure the following are installed:
 
 3. Test the command:
    ```bash
-   cli-py-project-pars3r
+   pars3r
    ```
 
 ## **Usage**
 
 Run the main script using:
 ```bash
-cli-py-project-pars3r
+pars3r
 ```
 
 ### Core Functionalities:
@@ -89,7 +89,7 @@ cli-py-project-pars3r
 
    Example:
    ```bash
-   cli-py-project-pars3r
+   pars3r
    ```
 
 2. **Unpacking**:
@@ -98,7 +98,7 @@ cli-py-project-pars3r
 
    Example:
    ```bash
-   cli-py-project-pars3r
+   pars3r
    ```
 
    Follow the interactive prompts to choose the `.prompt` file to unpack.
