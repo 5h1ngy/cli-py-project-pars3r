@@ -3,6 +3,63 @@ import fnmatch
 from pathlib import Path
 from datetime import datetime
 
+class ScaffoldingGenerator:
+    def __init__(self, base_path="."):
+        self.base_path = os.path.abspath(base_path)
+
+    def restore_from_prompt(self, prompt_file):
+        """Legge il file di prompt e ripristina la struttura del progetto."""
+        if not os.path.isfile(prompt_file):
+            print(f"Errore: Il file '{prompt_file}' non esiste.")
+            return
+
+        with open(prompt_file, "r", encoding="utf-8") as f:
+            content = f.read()
+
+        # Analizza il contenuto del file di prompt
+        blocks = content.split("\n---\n")
+        metadata = blocks[0]
+        file_blocks = blocks[1:]
+
+        # Estrai il nome del progetto
+        project_name = None
+        for line in metadata.splitlines():
+            if line.startswith("Project Name:"):
+                project_name = line.split(":", 1)[1].strip()
+                break
+
+        if not project_name:
+            print("Errore: Nome del progetto non trovato nel file di prompt.")
+            return
+
+        project_folder = Path(self.base_path) / project_name
+        project_folder.mkdir(parents=True, exist_ok=True)
+
+        # Ripristina i file
+        for block in file_blocks:
+            lines = block.splitlines()
+            file_path = None
+            file_content = []
+            inside_content = False
+
+            for line in lines:
+                if line.startswith("[FILE_PATH]:"):
+                    file_path = line.split(":", 1)[1].strip()
+                elif line.startswith("[FILE_CONTENT]:"):
+                    inside_content = True
+                elif inside_content:
+                    file_content.append(line)
+
+            if file_path:
+                full_path = project_folder / file_path
+                full_path.parent.mkdir(parents=True, exist_ok=True)
+
+                with open(full_path, "w", encoding="utf-8") as f:
+                    f.write("\n".join(file_content))
+
+        print(f"Ripristino completato! Progetto ricreato nella cartella: {project_folder}")
+
+
 class ProjectParser:
     SUPPORTED_EXTENSIONS = {".ts", ".js", ".jsx", ".tsx", ".py", ".json"}
     
@@ -39,6 +96,11 @@ class ProjectParser:
         base_dir = Path(self.base_path)
         return [d for d in base_dir.iterdir() if d.is_dir()]
 
+    def list_prompt_files(self):
+        """Elenca i file di prompt nella directory base."""
+        base_dir = Path(self.base_path)
+        return [f for f in base_dir.iterdir() if f.is_file() and f.suffix == ".prompt"]
+
     def is_supported_file(self, file_path):
         """Controlla se il file ha una delle estensioni supportate."""
         return any(file_path.endswith(ext) for ext in self.SUPPORTED_EXTENSIONS)
@@ -65,6 +127,28 @@ class ProjectParser:
 
         self.selected_folder = directories[choice - 1]
         return True
+
+    def select_prompt_file(self):
+        """Seleziona un file di prompt dalla lista dei file disponibili."""
+        prompt_files = self.list_prompt_files()
+        if not prompt_files:
+            print("Nessun file di prompt trovato nella directory specificata.")
+            return None
+
+        print("Seleziona un file di prompt da analizzare:")
+        for idx, prompt_file in enumerate(prompt_files, start=1):
+            print(f"{idx}. {prompt_file.name}")
+        
+        try:
+            choice = int(input("Inserisci il numero del file di prompt da selezionare: ").strip())
+            if choice < 1 or choice > len(prompt_files):
+                print("Scelta non valida.")
+                return None
+        except ValueError:
+            print("Inserisci un numero valido.")
+            return None
+
+        return prompt_files[choice - 1]
 
     def parse_project(self):
         """Legge e processa i file di progetto ignorando i pattern definiti."""
@@ -124,19 +208,29 @@ class ProjectParser:
         print(f"Completato! Il file è stato salvato in: {output_path}")
 
     def run(self):
-        """Esegue l'intero processo."""
+        """Esegue il processo di packing o unpacking."""
         print(f"Directory di lavoro: {self.base_path}")
         if not os.path.isdir(self.base_path):
             print(f"Errore: La directory '{self.base_path}' non esiste.")
             return
 
-        if not self.select_folder():
-            return
+        mode = input("Scegli una modalità (pack/unpack): ").strip().lower()
+        if mode == "unpack":
+            prompt_file = self.select_prompt_file()
+            if prompt_file:
+                generator = ScaffoldingGenerator(self.base_path)
+                generator.restore_from_prompt(prompt_file)
+        elif mode == "pack":
+            if not self.select_folder():
+                return
 
-        print(f"Hai selezionato: {self.selected_folder.name}")
-        print("Analisi in corso...")
-        self.parse_project()
-        self.write_output()
+            print(f"Hai selezionato: {self.selected_folder.name}")
+            print("Analisi in corso...")
+            self.parse_project()
+            self.write_output()
+        else:
+            print("Modalità non valida. Usa 'pack' per creare un prompt o 'unpack' per ripristinare un progetto.")
+
 
 def app():
     base_path = input("Inserisci la directory da analizzare (lascia vuoto per usare la directory corrente): ").strip() or "."
