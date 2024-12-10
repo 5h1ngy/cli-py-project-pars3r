@@ -5,15 +5,22 @@
 </p>
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
-[![Version](https://img.shields.io/badge/version-1.0.0-blue)](#)
+[![Version](https://img.shields.io/badge/version-1.1.0-blue)](#)
 ![Python](https://img.shields.io/badge/python-%3E%3D3.6-green)
 
-A simple and modern Python CLI tool designed for automating and optimizing tasks with globally installable scripts.
+A Python CLI tool for parsing project structures into prompts and restoring them into a directory scaffolding.
 
 <p align="center">
-   <div style="display: flex; justify-content: center; align-items: center; gap: 10px;">
-      <img src="./assets/preview.png" alt="Preview Light" style="height: 150px; object-fit: contain;">
-   </div>
+  <table>
+    <tr>
+      <td align="center">
+        <img src="./assets/preview_1.png" alt="Preview 1" style="height: 300px; object-fit: contain;">
+      </td>
+      <td align="center">
+        <img src="./assets/preview_2.png" alt="Preview 2" style="height: 300px; object-fit: contain;">
+      </td>
+    </tr>
+  </table>
 </p>
 
 ## **Table of Contents**
@@ -25,23 +32,30 @@ A simple and modern Python CLI tool designed for automating and optimizing tasks
 - [Usage](#usage)
 - [Project Structure](#project-structure)
 - [Testing](#testing)
+- [Changelog](#changelog)
 - [Contributing](#contributing)
 - [License](#license)
 
 ## **Introduction**
 
-`CLI-Py-Project-Pars3r` is a Python-based CLI tool designed to provide simple yet effective functionalities for automating custom tasks through globally available shell commands.
+`CLI-Py-Project-Pars3r` is a Python-based CLI tool designed for:
+
+1. **Packing**: Parsing a project directory into a `.prompt` file that summarizes its contents.
+2. **Unpacking**: Restoring the directory scaffolding and files from a `.prompt` file.
+
+This tool is simple to use, globally installable, and ideal for automation.
 
 ## **Features**
 
-- ✅ Easy to install and use.
-- ✅ Supports customizable CLI commands.
+- ✅ Parse project directories into a summarized `.prompt` file.
+- ✅ Restore directories and files from `.prompt` files.
+- ✅ Interactive CLI for selecting folders or `.prompt` files.
+- ✅ Configurable and extendable.
 - ✅ Compatible with Python `>= 3.6`.
-- ✅ Configurable and scalable for multiple use cases.
 
 ## **Requirements**
 
-Make sure the following are installed on your system:
+Ensure the following are installed:
 
 - **Python**: `>= 3.6`
 - **pip**: Python package manager
@@ -73,10 +87,28 @@ Run the main script using:
 cli-py-project-pars3r
 ```
 
-### Core Features:
-- **Feature 1**: Automatic data parsing.
-- **Feature 2**: Integration with existing systems.
-- **Feature 3**: Extensibility with custom Python modules.
+### Core Functionalities:
+
+1. **Packing**: 
+   - Select a folder to analyze.
+   - Generate a `.prompt` file summarizing its contents.
+   - The `.prompt` file will include metadata, file paths, and contents.
+
+   Example:
+   ```bash
+   cli-py-project-pars3r
+   ```
+
+2. **Unpacking**:
+   - Select a `.prompt` file from the list.
+   - Restore the directory scaffolding and files from the `.prompt`.
+
+   Example:
+   ```bash
+   cli-py-project-pars3r
+   ```
+
+   Follow the interactive prompts to choose the `.prompt` file to unpack.
 
 ## **Project Structure**
 
@@ -84,37 +116,31 @@ cli-py-project-pars3r
 cli-py-project-pars3r/
 ├── cli-py-project-pars3r/
 │   ├── __init__.py        # Package initialization
-│   └── cli.py             # Main script
+│   ├── cli.py             # Main script
 ├── setup.py               # Configuration for pip
 ├── README.md              # Documentation
+├── assets/                # Images and assets for the README
 └── tests/                 # (Optional) Automated tests
 ```
 
 ## **Testing**
 
-To run automated tests:
+Run automated tests using:
 ```bash
 pytest tests/
 ```
 
-## **Contributing**
+## **Changelog**
 
-We welcome contributions! Follow these steps:
+### **v1.1.0**
+- Added **interactive file selection** for unpacking `.prompt` files.
+- Improved CLI interactivity and error handling.
+- Updated README to reflect new features.
 
-1. Fork the repository.
-2. Create a new branch:
-   ```bash
-   git checkout -b feature/[feature-name]
-   ```
-3. Commit your changes:
-   ```bash
-   git commit -m "Add feature: [feature-name]"
-   ```
-4. Push your branch:
-   ```bash
-   git push origin feature/[feature-name]
-   ```
-5. Open a pull request.
+### **v1.0.0**
+- Initial release:
+  - Added project parsing and `.prompt` file generation.
+  - Added directory scaffolding restoration from `.prompt`.
 
 ## **License**
 
