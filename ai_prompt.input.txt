@@ -1,1 +1,0 @@
-Popolami il template.readme.md in funzione del contenuto del file .prompt

@@ -1,21 +1,21 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="myscript",             # Nome del pacchetto
-    version="1.0.0",             # Versione del pacchetto
+    name="cli-py-project-pars3r",             # Nome del pacchetto
+    version="0.1.0",             # Versione del pacchetto
     packages=find_packages(),    # Cerca automaticamente i pacchetti nella directory
     install_requires=[],         # Elenca le dipendenze qui
     entry_points={
         'console_scripts': [
-            'myscript=bin.main:app',  # Nome comando=modulo:funzione
+            'pars3r=bin.main:app',  # Nome comando=modulo:funzione
         ],
     },
     description="Un esempio di script Python installabile globalmente.",
     long_description=open("README.md").read(),  # Opzionale, per descrizioni lunghe
     long_description_content_type="text/markdown",
-    author="Il Tuo Nome",
-    author_email="tuo.email@example.com",
-    url="https://github.com/tuo-repo",  # (Opzionale) URL del progetto
+    author="5h1ngy",
+    author_email="sig.scarano@outlook.it",
+    url="https://github.com/5h1ngy/cli-py-project-pars3r",  # (Opzionale) URL del progetto
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
