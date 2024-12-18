@@ -61,7 +61,7 @@ class ScaffoldingGenerator:
 
 
 class ProjectParser:
-    SUPPORTED_EXTENSIONS = {".ts", ".js", ".jsx", ".tsx", ".py", ".json", ".tf", ".tfvars", ".conf"}
+    SUPPORTED_EXTENSIONS = {".ts", ".js", ".jsx", ".tsx", ".py", ".json", ".tf", ".tfvars", ".conf", ".sh"}
     
     def __init__(self, base_path="."):
         self.base_path = os.path.abspath(base_path)
